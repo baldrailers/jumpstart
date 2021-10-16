@@ -251,7 +251,10 @@ end
 
 def add_esbuild_script
   build_script = "node esbuild.config.js" 
-  run %(npm set-script build:css "#{build_script}")
+  run %(npm set-script build "#{build_script}")
+
+  build_sass = "sass ./app/assets/stylesheets/application.bootstrap.scss ./app/assets/builds/application.css --no-source-map --load-path=node_modules"
+  run %(npm set-script build:css "#{build_sass}")
 end
 
 def add_esbuild_imports

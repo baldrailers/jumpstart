@@ -66,6 +66,7 @@ def add_gems
   gem 'pundit', '~> 2.1'
   gem 'sidekiq', '~> 6.2'
   gem 'sitemap_generator', '~> 6.1'
+  gem 'foreman', group: :development, require: false
   gem 'whenever', require: false
   gem 'responders', github: 'heartcombo/responders'
 
@@ -161,6 +162,8 @@ def copy_templates
   copy_file "Procfile"
   copy_file "Procfile.dev"
   copy_file ".foreman"
+  copy_file "Dockerfile"
+  copy_file "docker-compose.yml"
   copy_file "esbuild.config.js"
   copy_file "app/javascript/controllers/index.js"
 

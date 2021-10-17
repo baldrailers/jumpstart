@@ -29,7 +29,6 @@ ENV BUNDLE_PATH /gems
 RUN yarn install
 RUN bundle install
 
-ENTRYPOINT ["bin/rails"]
 CMD bundle exec puma -C config/puma.rb
 
 EXPOSE 3000

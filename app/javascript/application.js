@@ -4,19 +4,22 @@ import "@hotwired/turbo-rails"
 import * as bootstrap from "bootstrap"
 import './channels/**/*_channel.js'
 
+//require("trix")
+//require("@rails/actiontext")
+
 document.addEventListener("turbo:load", () => {
   var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+  var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
     return new bootstrap.Tooltip(tooltipTriggerEl)
   })
 
   var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
-  var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+  var popoverList = popoverTriggerList.map(function(popoverTriggerEl) {
     return new bootstrap.Popover(popoverTriggerEl)
   })
 
-  // var toastElList = [].slice.call(document.querySelectorAll('.toast'))
-  // var toastList = toastElList.map(function (toastEl) {
-  //   return new bootstrap.Toast(toastEl).show()
-  // })
+  var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+  var toastList = toastElList.map(function(toastEl) {
+    return new bootstrap.Toast(toastEl).show()
+  })
 })

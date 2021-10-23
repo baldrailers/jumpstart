@@ -8,7 +8,13 @@
     <main class="flex-shrink-0"> 
       <%= render 'shared/navbar' %>
       <%= render 'shared/notices' %>
-
+      <div class="container position-relative">
+        <div id="toasts" style="position: absolute; top: 0; right: 0; z-index: 1;">
+          <!--  Remove this -->
+          <%= render 'shared/toast' %>
+        </div>
+      </div>
+ 
       <div class="container mt-4 mx-auto">
         <%= yield %>
       </div>

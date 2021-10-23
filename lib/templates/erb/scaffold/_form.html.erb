@@ -1,33 +1,14 @@
-<%%= form_with(model: <%= model_resource_name %>, local: true) do |form| %>
-  <%% if <%= singular_table_name %>.errors.any? %>
-    <div id="error_explanation">
-      <h2><%%= pluralize(<%= singular_table_name %>.errors.count, "error") %> prohibited this <%= singular_table_name %> from being saved:</h2>
-
-      <ul>
-      <%% <%= singular_table_name %>.errors.full_messages.each do |message| %>
-        <li><%%= message %></li>
-      <%% end %>
-      </ul>
-    </div>
-  <%% end %>
-
+<%%= bootstrap_form_for(<%= model_resource_name %>, local: true) do |form| %>
 <% attributes.each do |attribute| -%>
   <div class="mb-3">
 <% if attribute.password_digest? -%>
-    <%%= form.label :password, class: 'form-label' %>
-    <%%= form.password_field :password, class: 'form-control' %>
+    <%%= form.password_field :password %>
   </div>
 
   <div class="mb-3">
-    <%%= form.label :password_confirmation, class: 'form-label' %>
-    <%%= form.password_field :password_confirmation, class: 'form-control' %>
+    <%%= form.password_field :password_confirmation %>
 <% else -%>
-    <%%= form.label :<%= attribute.column_name %>, class: 'form-label' %>
-  <% if attribute.field_type == "checkbox" -%>
     <%%= form.<%= attribute.field_type %> :<%= attribute.column_name %> %>
-  <% else -%>
-    <%%= form.<%= attribute.field_type %> :<%= attribute.column_name %>, class: 'form-control' %>
-  <% end -%>
 <% end -%>
   </div>
 
